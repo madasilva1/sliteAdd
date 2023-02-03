@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
         return true;
     }
-    public boolean onOptionItemSelect(MenuItem item){
+    public boolean onOptionsItemSelected(MenuItem item){
         switch ((item.getItemId())){
             case R.id.action_search:
                 Intent intent = new Intent(MainActivity.this,SeachActivity.class);

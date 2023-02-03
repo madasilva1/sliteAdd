@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SQLiteAdd</string>
+    <string name="searched">search_word</string>
 </resources>

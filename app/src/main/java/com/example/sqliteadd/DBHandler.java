@@ -10,6 +10,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 
 public class DBHandler extends SQLiteOpenHelper {
+    public static final String TRACKS_COL = "tracks";
+    public static final String DESCRIPTION_COL = "description";
+    public static final String DURATION_COL = "duration";
+    public static final String NAME_COL = "name";
     // creating a constant variables for our database.
     // below variable is for our database name.
     private static final String DB_NAME = "coursedb";
@@ -23,17 +27,10 @@ public class DBHandler extends SQLiteOpenHelper {
     // below variable is for our id column.
     private static final String ID_COL = "id";
 
-    // below variable is for our course name column
-    private static final String NAME_COL = "name";
 
-    // below variable id for our course duration column.
-    private static final String DURATION_COL = "duration";
 
-    // below variable for our course description column.
-    private static final String DESCRIPTION_COL = "description";
 
-    // below variable is for our course tracks column.
-    private static final String TRACKS_COL = "tracks";
+
 
     // creating a constructor for our database handler.
     public DBHandler(Context context) {
@@ -153,5 +150,25 @@ public class DBHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-}
+    public Cursor search(String searchString) {
+        searchString = "%" + searchString + "%";
+        String[]whereArgs = new String[]{searchString};
+        SQLiteDatabase mReadableDB = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        try {
+            String selectQuery = "SELECT * FROM " + TABLE_NAME + " WHERE " + NAME_COL + " LIKE ?" ;
+            if (mReadableDB == null)
+            { mReadableDB = getReadableDatabase();}
+
+            cursor = mReadableDB.rawQuery(selectQuery,whereArgs,null);
+        } catch (Exception e) {
+            //  Log.d(TAG, "SEARCH EXCEPTION! " + e);
+
+        }
+
+        return cursor;
+    }
+    }
+
 
