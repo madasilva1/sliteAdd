@@ -13,7 +13,7 @@ import android.os.Bundle;
 public class UpdateCoursesActivity extends AppCompatActivity {
     // variables for our edit text, button, strings and dbhandler class.
     private EditText courseNameEdt, courseTracksEdt, courseDurationEdt, courseDescriptionEdt;
-    private Button updateCourseBtn;
+    private Button updateCourseBtn,Delete;
     private DBHandler dbHandler;
     String courseName, courseDesc, courseDuration, courseTracks;
 
@@ -28,6 +28,7 @@ public class UpdateCoursesActivity extends AppCompatActivity {
         courseDurationEdt = findViewById(R.id.idEdtCourseDuration);
         courseDescriptionEdt = findViewById(R.id.idEdtCourseDescription);
         updateCourseBtn = findViewById(R.id.idBtnUpdateCourse);
+        Delete = findViewById(R.id.idBtnDelete);
 
         // on below line we are initializing our dbhandler class.
         dbHandler = new DBHandler(UpdateCoursesActivity.this);
@@ -59,6 +60,17 @@ public class UpdateCoursesActivity extends AppCompatActivity {
                 Toast.makeText(UpdateCoursesActivity.this, "Course Updated..", Toast.LENGTH_SHORT).show();
 
                 // launching our main activity.
+                Intent i = new Intent(UpdateCoursesActivity.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
+        // adding on click listener for delete button to delete our course.
+        Delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // calling a method to delete our course.
+                dbHandler.deleteCourse(courseName);
+                Toast.makeText(UpdateCoursesActivity.this, "Deleted the course", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(UpdateCoursesActivity.this, MainActivity.class);
                 startActivity(i);
             }
