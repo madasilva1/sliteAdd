@@ -16,6 +16,9 @@
         android:theme="@style/Theme.SQLiteAdd"
         tools:targetApi="31">
         <activity
+            android:name=".SeachActivity"
+            android:exported="false" />
+        <activity
             android:name=".UpdateCoursesActivity"
             android:exported="false" />
         <activity
