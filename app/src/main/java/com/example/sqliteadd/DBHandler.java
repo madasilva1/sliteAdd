@@ -27,11 +27,6 @@ public class DBHandler extends SQLiteOpenHelper {
     // below variable is for our id column.
     private static final String ID_COL = "id";
 
-
-
-
-
-
     // creating a constructor for our database handler.
     public DBHandler(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -157,7 +152,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
         Cursor cursor = null;
         try {
-            String selectQuery = "SELECT * FROM " + TABLE_NAME + " WHERE " + NAME_COL + " LIKE ?" ;
+            String selectQuery = "SELECT * FROM " + TABLE_NAME + " WHERE " + NAME_COL + " LIKE ? " ;
             if (mReadableDB == null)
             { mReadableDB = getReadableDatabase();}
 

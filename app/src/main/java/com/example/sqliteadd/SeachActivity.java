@@ -37,8 +37,6 @@ public class SeachActivity extends AppCompatActivity {
 
         if (cursor != null && cursor.getCount() > 0) {
             cursor.moveToFirst();
-            //int index;
-            // String resulted;
 
             do {
 
