@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         courseDurationEdt = findViewById(R.id.idEdtCourseDuration);
         courseDescriptionEdt = findViewById(R.id.idEdtCourseDescription);
         addCourseBtn = findViewById(R.id.idBtnAddCourse);
+        readCourseBtn = findViewById(R.id.idBtnReadCourse);
 
 
         // creating a new dbhandler class
