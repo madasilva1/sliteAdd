@@ -21,7 +21,7 @@ public class ViewCourses extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_courses);
 
-        // initializing our all variables.
+        // initializing our all variables from Viewcourses.
         courseModalArrayList = new ArrayList<>();
         dbHandler = new DBHandler(ViewCourses.this);
 
