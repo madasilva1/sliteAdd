@@ -32,7 +32,7 @@ public class SeachActivity extends AppCompatActivity {
     @SuppressLint("Range")
     public void showResulted(View view) {
         String word = enterText.getText().toString();
-        mTextView.setText("Resulted for " + word + ":\n\n");
+        mTextView.setText("Resulted for " + word + ":\n  \n");
         Cursor cursor = mDB.search(word);
 
         if (cursor != null && cursor.getCount() > 0) {
