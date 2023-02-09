@@ -32,5 +32,16 @@
         android:onClick="showResulted"
         android:text="search"
         tools:ignore="onClick" />
+    <ListView
+        android:id="@+id/lv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:maxLines="35"
+        android:minLines="1"
+        android:textStyle="bold"
+        android:textColor="#00ccff"
+        android:textSize = "20sp"
+        />
 
 </LinearLayout>
