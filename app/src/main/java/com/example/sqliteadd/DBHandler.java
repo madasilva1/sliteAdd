@@ -146,17 +146,20 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     public Cursor search(String searchString) {
+        String[] columns = new String[]{NAME_COL,DURATION_COL,TRACKS_COL,DESCRIPTION_COL};
+        String where = NAME_COL + " LIKE ? OR " + DURATION_COL + " LIKE ? OR "
+                + TRACKS_COL + " LIKE  ? OR " + DESCRIPTION_COL + " LIKE ? ";
         searchString = "%" + searchString + "%";
-        String[]whereArgs = new String[]{searchString};
+        String[]whereArgs = new String[]{searchString,searchString,searchString,searchString};
         SQLiteDatabase mReadableDB = this.getReadableDatabase();
 
         Cursor cursor = null;
         try {
-            String selectQuery = "SELECT * FROM " + TABLE_NAME + " WHERE " + NAME_COL + " LIKE ? " ;
+
             if (mReadableDB == null)
             { mReadableDB = getReadableDatabase();}
 
-            cursor = mReadableDB.rawQuery(selectQuery,whereArgs,null);
+            cursor = mReadableDB.query(TABLE_NAME, columns, where, whereArgs, null,null,null);
         } catch (Exception e) {
             //  Log.d(TAG, "SEARCH EXCEPTION! " + e);
 
