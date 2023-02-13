@@ -2,4 +2,6 @@
     <string name="app_name">SQLiteAdd</string>
     <string name="searched">search_word</string>
     <string name="no_result">noresulted</string>
+    <string name= "hint_word"> hint_word</string>
+    <string name="button_search"> search</string>
 </resources>

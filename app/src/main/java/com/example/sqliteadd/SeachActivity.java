@@ -56,6 +56,7 @@ public class SeachActivity extends AppCompatActivity {
                 result.append(cursor.getString(cursor.getColumnIndex(mDB.DURATION_COL)));
                 result.append(":\n\n");
                 mTextView.append(result + "\n");
+                
             } while (cursor.moveToNext());
             cursor.close();
         } else {
